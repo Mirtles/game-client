@@ -14,7 +14,6 @@ export default class GameFormContainer extends React.Component {
     event.preventDefault();
 
     const { name } = this.state;
-    console.log(name);
 
     request
       .post(`${url}/game`)

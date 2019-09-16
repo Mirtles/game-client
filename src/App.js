@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 import { setGames } from "./actions/games";
 import GameFormContainer from "./components/AddGameForm/GameFormContainer";
+import GamesListContainer from "./components/GamesList/GamesListContainer";
 
 const url = "http://localhost:4000";
 
@@ -24,9 +25,7 @@ class App extends React.Component {
     return (
       <div>
         <GameFormContainer />
-        {this.props.games.map(game => (
-          <div>{game.name}</div>
-        ))}
+        <GamesListContainer />
       </div>
     );
   }
