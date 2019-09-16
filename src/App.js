@@ -4,6 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { setGames } from './actions/games'
+import GamesListContainer from './components/GamesList/GamesListContainer'
 
 const url = 'http://localhost:4000'
 
@@ -20,7 +21,9 @@ class App extends React.Component {
   }
 
   render() {
-    return <div>{this.props.games.map(game => <div>{game.name}</div>)}</div>
+    return <div>{this.props.games.map(game => <div>{game.name}</div>)}
+      <GamesListContainer />
+    </div>
   }
 }
 
