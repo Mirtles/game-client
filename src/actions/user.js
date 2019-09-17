@@ -1,0 +1,19 @@
+import request from "superagent";
+import url from "../constants";
+export const JWT = "JWT";
+
+function jwt(payload) {
+  return {
+    type: JWT,
+    payload
+  };
+}
+
+export const login = (name, password) => dispatch => {
+  request
+    .post(`${url}/login`)
+    .send({ name, password })
+    .then(response => {
+      dispatch(jwt(response.body.jwt));
+    });
+};
