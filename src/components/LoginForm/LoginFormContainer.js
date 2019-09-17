@@ -9,9 +9,10 @@ class LoginFormContainer extends React.Component {
     name: "",
     password: ""
   };
+
   onSubmit = event => {
     event.preventDefault();
-    this.props.login(this.state.email, this.state.password);
+    this.props.login(this.state.name, this.state.password);
   };
 
   onChange = event => {
@@ -20,8 +21,17 @@ class LoginFormContainer extends React.Component {
     });
   };
   render() {
-    return <LoginForm value={this.state} />;
+    return (
+      <LoginForm
+        value={this.state}
+        onChange={this.onChange}
+        onSubmit={this.onSubmit}
+      />
+    );
   }
 }
 
-export default (null, { login })(LoginFormContainer);
+export default connect(
+  null,
+  { login }
+)(LoginFormContainer);
