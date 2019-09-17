@@ -2,8 +2,7 @@ import React from "react";
 import request from "superagent";
 
 import GameForm from "./GameForm";
-
-const url = "http://localhost:4000";
+import url from "../../constants";
 
 export default class GameFormContainer extends React.Component {
   state = {

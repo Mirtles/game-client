@@ -7,8 +7,7 @@ import { setGames } from "./actions/games";
 import GameFormContainer from "./components/AddGameForm/GameFormContainer";
 import GamesListContainer from "./components/GamesList/GamesListContainer";
 import LoginFormContainer from "./components/LoginForm/LoginFormContainer";
-
-const url = "http://localhost:4000";
+import url from "./constants";
 
 class App extends React.Component {
   source = new EventSource(`${url}/stream`);
