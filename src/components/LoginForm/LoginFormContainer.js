@@ -13,6 +13,10 @@ class LoginFormContainer extends React.Component {
   onSubmit = event => {
     event.preventDefault();
     this.props.login(this.state.name, this.state.password);
+    this.setState({
+      name: "",
+      password: ""
+    });
   };
 
   onChange = event => {
@@ -20,6 +24,7 @@ class LoginFormContainer extends React.Component {
       [event.target.name]: event.target.value
     });
   };
+
   render() {
     return (
       <LoginForm
