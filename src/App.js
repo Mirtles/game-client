@@ -2,7 +2,7 @@ import "./App.css";
 
 import React from "react";
 import { connect } from "react-redux";
-import { Route } from 'react-router-dom'
+import { Route, Link } from "react-router-dom";
 
 import { setGames } from "./actions/games";
 import GameFormContainer from "./components/AddGameForm/GameFormContainer";
@@ -27,23 +27,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Route
-          exact path='/'
-          component={SignupFormContainer} />
-        <Route
-          exact path='/'
-          component={LoginFormContainer} />
+        <Link to="/lobby">Lobby</Link>
+        <Route exact path="/" component={SignupFormContainer} />
+        <Route exact path="/" component={LoginFormContainer} />
 
-        <Route
-          exact path='/lobby'
-          component={GameFormContainer} />
-        <Route
-          exact path='/lobby'
-          component={GamesListContainer} />
+        <Route exact path="/lobby" component={GameFormContainer} />
+        <Route exact path="/lobby" component={GamesListContainer} />
 
-        <Route
-          path='/lobby/:gameId'
-          component={GamePage} />
+        <Route path="/lobby/:gameId" component={GamePage} />
       </div>
     );
   }
