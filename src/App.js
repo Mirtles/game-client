@@ -2,7 +2,7 @@ import "./App.css";
 
 import React from "react";
 import { connect } from "react-redux";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import { setGames } from "./actions/games";
 import url from "./constants";
