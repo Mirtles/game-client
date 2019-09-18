@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 import request from "superagent";
 
 import GamePage from "./GamePage";
+import ScorePage from "../ScorePage/ScorePage"
 import url from "../../constants";
 
 class GamePageContainer extends React.Component {
-  componentDidCatch;
-
   onClick = (e, choice) => {
     request
       .put(`${url}/choose/${choice}`)
@@ -19,8 +18,8 @@ class GamePageContainer extends React.Component {
     const game =
       this.props.games.length > 0
         ? this.props.games.find(
-            game => game.id === parseInt(this.props.match.params.gameId)
-          )
+          game => game.id === parseInt(this.props.match.params.gameId)
+        )
         : null;
 
     return (
@@ -28,8 +27,11 @@ class GamePageContainer extends React.Component {
         {!game ? (
           "Loading... "
         ) : (
-          <GamePage onClick={this.onClick} game={game} />
-        )}
+            <div>
+              <GamePage onClick={this.onClick} game={game} />
+              <ScorePage game={game} />
+            </div>
+          )}
       </div>
     );
   }
