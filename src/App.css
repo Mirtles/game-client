@@ -6,7 +6,8 @@
   display: flex;
 }
 
-img {
-  width: 250px;
-  height: 250px;
+.emoji {
+  transform: rotate(-90deg);
+  margin: 0 auto;
+  font-size: 100px;
 }
