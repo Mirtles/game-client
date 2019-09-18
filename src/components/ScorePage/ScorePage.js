@@ -2,22 +2,30 @@ import React from 'react'
 
 export default class ScorePage extends React.Component {
   render() {
-    const { round } = this.props.game
-    const userOne = this.props.game.users[0]
-    const userTwo = this.props.game.users[1]
-
+    const users = this.props.game.users
+    const userOne = users[0]
+    const userTwo = users[1]
+    const winner = users.find(user => user.isRoundWinner)
+    console.log(users)
     const rock = "✊"
     const paper = "✋"
-    // const scissors = String.fromCodePoint(U+270C)
+    const scissors = "✌️"
 
     return (<div>
-      <p>Round: {round}</p>
-
+      <h1>Round winner: {!winner ? "draw" : winner.name}</h1>
       <div>
-        <h1>{userOne.name}</h1>
-        <div className="emoji">
-          <span role="img" aria-label={userOne.current_choice}>
-            {rock}{scissors}
+        <h2>{userOne.name}</h2>
+        <div>
+          <span aria-label={userOne.current_choice}>
+            {userOne.current_choice === "rock" ? rock : userOne.current_choice === "paper" ? paper : scissors}
+          </span>
+        </div>
+      </div>
+      <div>
+        <h2>{userTwo.name}</h2>
+        <div>
+          <span aria-label={userTwo.current_choice}>
+            {userTwo.current_choice === "rock" ? rock : userTwo.current_choice === "paper" ? paper : scissors}
           </span>
         </div>
       </div>
@@ -26,22 +34,3 @@ export default class ScorePage extends React.Component {
     )
   }
 }
-
-// const rock = ✊
-// const paper = ✋
-// const scissors = ✌️
-// const rock = (<div className="emoji">
-// <span role="img" aria-label="rock">
-//   ✊
-// </span>
-// </div>)
-// const paper = (<div className="emoji">
-// <span role="img" aria-label="paper">
-//   ✋
-// </span>
-// </div>)
-// const scissors = (<div className="emoji">
-// <span role="img" aria-label="scissors">
-//   ✌️
-// </span>
-// </div>)
