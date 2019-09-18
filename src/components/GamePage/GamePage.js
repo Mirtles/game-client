@@ -4,17 +4,17 @@ export default class GamePage extends React.Component {
   render() {
     return (
       <div className="imageContainer">
-        <div className="emoji">
+        <div onClick={e => this.props.onClick(e, "scissors")} className="emoji">
           <span role="img" aria-label="scissors">
             ✌️
           </span>
         </div>
-        <div className="emoji">
+        <div onClick={e => this.props.onClick(e, "paper")} className="emoji">
           <span role="img" aria-label="paper">
             ✋
           </span>
         </div>
-        <div className="emoji">
+        <div onClick={e => this.props.onClick(e, "rock")} className="emoji">
           <span role="img" aria-label="rock">
             ✊
           </span>

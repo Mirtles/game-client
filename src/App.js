@@ -6,8 +6,8 @@ import { Route, Link } from "react-router-dom";
 
 import { setGames } from "./actions/games";
 import url from "./constants";
-import GamePage from "../src/components/GamePage/GamePage";
 import HomePage from "./components/HomePage";
+import GamePageContainer from "./components/GamePage/GamePageContainer";
 
 class App extends React.Component {
   source = new EventSource(`${url}/stream`);
@@ -24,7 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Route path="/lobby/:gameId" component={GamePage} />
+        <Route path="/lobby/:gameId" component={GamePageContainer} />
         <Route exact path="/" component={HomePage} />
       </div>
     );
