@@ -28,7 +28,7 @@ export default class GamePage extends React.Component {
           </div>
         </div>
         <Link onClick={this.props.onQuitGame} to={`/`}>
-          Quit Game
+          <button>Quit Game</button>
         </Link>
       </div>
     );

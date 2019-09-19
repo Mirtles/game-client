@@ -43,7 +43,7 @@ export default class ScorePage extends React.Component {
         </div>
         <button onClick={this.props.onClick}>Next Round</button>
         <Link onClick={this.props.onQuitGame} to={`/`}>
-          Quit Game
+          <button>Quit Game</button>
         </Link>
       </div>
     );
