@@ -40,7 +40,7 @@ class GamePageContainer extends React.Component {
 
     return (
       <div>
-        {!game ? null : (game.users.length === 2 ? <ScoreBar game={game} /> : null)}
+        {!game ? null : (game.users.length === 2 ? <ScoreBar game={game} user={this.props.user} /> : null)}
         {!game ? (
           "Loading... "
         ) : game.users.length < 2 ? (
@@ -49,7 +49,7 @@ class GamePageContainer extends React.Component {
           <ScorePage
             game={game}
             onClick={this.onScorePage}
-            onQuitGame={this.onQuitGame}
+            user={this.props.user}
           />
         ) : (
                 <GamePage
