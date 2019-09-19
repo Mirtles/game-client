@@ -105,3 +105,12 @@ a,a:visited {
   color: rgb(80, 80, 80);
   text-decoration: none;
 }
+
+.afterChoice {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.chosen {
+  opacity: 1;
+}
