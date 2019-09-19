@@ -5,8 +5,10 @@ export default class ScorePage extends React.Component {
     const users = this.props.game.users;
     const userOne = users[0];
     const userTwo = users[1];
-    const winner = users.find(user => user.isRoundWinner === true);
-    // console.log(this.props.game);
+    const winner = users.find(user => {
+      return user.isRoundWinner === true
+    });
+
     const rock = "✊";
     const paper = "✋";
     const scissors = "✌️";
@@ -21,8 +23,8 @@ export default class ScorePage extends React.Component {
               {userOne.current_choice === "rock"
                 ? rock
                 : userOne.current_choice === "paper"
-                ? paper
-                : scissors}
+                  ? paper
+                  : scissors}
             </span>
           </div>
         </div>
@@ -33,8 +35,8 @@ export default class ScorePage extends React.Component {
               {userTwo.current_choice === "rock"
                 ? rock
                 : userTwo.current_choice === "paper"
-                ? paper
-                : scissors}
+                  ? paper
+                  : scissors}
             </span>
           </div>
         </div>

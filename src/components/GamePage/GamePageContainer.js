@@ -12,15 +12,10 @@ class GamePageContainer extends React.Component {
     request
       .put(`${url}/choose/${choice}`)
       .set("Authorization", `Bearer ${this.props.user}`)
-      // .then(res => {
-      //   // console.log(res);
-      //   alert("yay got " + JSON.stringify(res.body.news));
-      // })
       .catch(console.error);
   };
 
   onScorePage = () => {
-    // console.log("i am clicked");
     request
       .put(`${url}/round`)
       .set("Authorization", `Bearer ${this.props.user}`)
@@ -31,26 +26,22 @@ class GamePageContainer extends React.Component {
     const game =
       this.props.games.length > 0
         ? this.props.games.find(
-            game => game.id === parseInt(this.props.match.params.gameId)
-          )
+          game => game.id === parseInt(this.props.match.params.gameId)
+        )
         : null;
-    // console.log(game.users.length);
+
     return (
       <div>
         {!game ? (
           "Loading... "
         ) : game.users.length === 1 ? (
           "Waiting for opponent"
-        ) : game.users.find(user => user.isRoundWinner) ? (
+        ) : game.users.find(user => user.isRoundWinner !== null) ? (
           <ScorePage game={game} onClick={this.onScorePage} />
         ) : (
-          <GamePage onClick={this.onClick} game={game} />
-        )
+                <GamePage onClick={this.onClick} game={game} />
+              )
 
-        // <div>
-        //   <GamePage onClick={this.onClick} game={game} />
-        //   <ScorePage game={game} />
-        // </div>
         }
       </div>
     );
