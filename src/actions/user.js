@@ -1,6 +1,15 @@
 import request from "superagent";
 import url from "../constants";
 
+export const ERROR = "ERROR";
+
+export const errorMessage = payload => {
+  return {
+    type: ERROR,
+    payload
+  };
+};
+
 export const JWT = "JWT";
 
 function jwt(payload) {
@@ -15,6 +24,7 @@ export const login = (name, password) => dispatch => {
     .post(`${url}/login`)
     .send({ name, password })
     .then(response => {
+      // errorMessage(response.body.message);
       dispatch(jwt(response.body));
     });
 };
@@ -25,13 +35,4 @@ export const logOut = () => dispatch => {
   dispatch({
     type: LOG_OUT
   });
-};
-
-export const ERROR = "ERROR";
-
-export const errorMessage = payload => {
-  return {
-    type: ERROR,
-    payload
-  };
 };
