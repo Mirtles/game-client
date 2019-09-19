@@ -15,7 +15,7 @@ export const login = (name, password) => dispatch => {
     .post(`${url}/login`)
     .send({ name, password })
     .then(response => {
-      dispatch(jwt(response.body.jwt));
+      dispatch(jwt(response.body));
     });
 };
 

@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default class ScorePage extends React.Component {
   render() {
     const users = this.props.game.users;
-    const userOne = users[0];
-    const userTwo = users[1];
+    const userOne = users.find(user => user.id === this.props.user.id);
+    const userTwo = users.find(user => user.id !== this.props.user.id)
     const winner = users.find(user => {
       return user.isRoundWinner === true;
     });
@@ -15,15 +14,24 @@ export default class ScorePage extends React.Component {
     const scissors = "✌️";
 
     const gameEnd = winner && winner.score >= 2
-    console.log(gameEnd)
+    const userIsWinner = userOne === winner
+    const userIsVictorious = gameEnd && userIsWinner
+
     return (
       <div>
 
-        {gameEnd ? <div className="victory">Victory! {winner.name} wins the game!</div> :
-          <div className="novictory">{!winner ?
-            "It's a draw!" :
-            `${winner.name} wins!`}</div>}
+        {!gameEnd ? null : (userIsVictorious ? < div className="victory">Victory!</div> : < div className="defeat">CRUSHING DEFEAT</div>)
+        }
+        {gameEnd ? null :
+          <div className="novictory">
 
+            {!winner ?
+              "It's a draw!" :
+              (userIsWinner ? "You win the round!" :
+                `${winner.name} wins the round.`
+              )}
+
+          </div>}
         <div>
           <h2>{userOne.name}</h2>
           <div>
@@ -48,9 +56,11 @@ export default class ScorePage extends React.Component {
             </span>
           </div>
         </div>
-        {gameEnd ? null :
-          <button onClick={this.props.onClick}>Next Round</button>}
-      </div>
+        {
+          gameEnd ? null :
+            <button onClick={this.props.onClick}>Next Round</button>
+        }
+      </div >
     );
   }
 }

@@ -8,7 +8,7 @@ class GamesList extends React.Component {
   onClick = (e, gameId) => {
     request
       .put(`${url}/join/${gameId}`)
-      .set("Authorization", `Bearer ${this.props.user}`)
+      .set("Authorization", `Bearer ${this.props.user.jwt}`)
       .catch(console.error);
   };
 

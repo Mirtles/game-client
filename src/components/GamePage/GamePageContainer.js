@@ -12,21 +12,21 @@ class GamePageContainer extends React.Component {
   onChoice = (e, choice) => {
     request
       .put(`${url}/choose/${choice}`)
-      .set("Authorization", `Bearer ${this.props.user}`)
+      .set("Authorization", `Bearer ${this.props.user.jwt}`)
       .catch(console.error);
   };
 
   onScorePage = () => {
     request
       .put(`${url}/round`)
-      .set("Authorization", `Bearer ${this.props.user}`)
+      .set("Authorization", `Bearer ${this.props.user.jwt}`)
       .catch(console.error);
   };
 
   onQuitGame = () => {
     request
       .put(`${url}/reset`)
-      .set("Authorization", `Bearer ${this.props.user}`)
+      .set("Authorization", `Bearer ${this.props.user.jwt}`)
       .catch(console.error);
   };
 
@@ -40,7 +40,7 @@ class GamePageContainer extends React.Component {
 
     return (
       <div>
-        {!game ? null : (game.users.length === 2 ? <ScoreBar game={game} /> : null)}
+        {!game ? null : (game.users.length === 2 ? <ScoreBar game={game} user={this.props.user} /> : null)}
         {!game ? (
           "Loading... "
         ) : game.users.length < 2 ? (
@@ -49,7 +49,7 @@ class GamePageContainer extends React.Component {
           <ScorePage
             game={game}
             onClick={this.onScorePage}
-            onQuitGame={this.onQuitGame}
+            user={this.props.user}
           />
         ) : (
                 <GamePage

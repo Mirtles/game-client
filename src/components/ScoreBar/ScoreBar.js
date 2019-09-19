@@ -4,19 +4,19 @@ export default class ScoreBar extends React.Component {
   render() {
 
     const { round, name } = this.props.game
-    const userOne = this.props.game.users[0]
-    const userTwo = this.props.game.users[1]
-
+    const users = this.props.game.users;
+    const userOne = users.find(user => user.id === this.props.user.id);
+    const userTwo = users.find(user => user.id !== this.props.user.id)
 
     return <div className="scorebar">
-      <div>
-        Room: {name}
-      </div>
       <div>
         Round: {round}
       </div>
       <div>
-        {userOne.name}:{userOne.score} vs {userTwo.name}:{userTwo.score}
+        Room: {name}
+      </div>
+      <div>
+        Score: {userOne.name} {userOne.score} vs {userTwo.name} {userTwo.score}
       </div>
     </div>
   }

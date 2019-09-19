@@ -17,7 +17,7 @@ class GameFormContainer extends React.Component {
 
     request
       .post(`${url}/game`)
-      .set("Authorization", `Bearer ${this.props.user}`)
+      .set("Authorization", `Bearer ${this.props.user.jwt}`)
       .send({ name })
       .then(() => {
         this.setState({ name: "" });
