@@ -85,3 +85,23 @@ button {
 .errorMessage {
   color: red;
 }
+
+.roomlist {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  margin: auto;
+}
+
+.gameroom {
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 1em;
+}
+
+a,a:visited {
+  color: rgb(80, 80, 80);
+  text-decoration: none;
+}
