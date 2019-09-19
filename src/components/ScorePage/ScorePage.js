@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default class ScorePage extends React.Component {
   render() {
@@ -6,7 +7,7 @@ export default class ScorePage extends React.Component {
     const userOne = users[0];
     const userTwo = users[1];
     const winner = users.find(user => {
-      return user.isRoundWinner === true
+      return user.isRoundWinner === true;
     });
 
     const rock = "✊";
@@ -23,8 +24,8 @@ export default class ScorePage extends React.Component {
               {userOne.current_choice === "rock"
                 ? rock
                 : userOne.current_choice === "paper"
-                  ? paper
-                  : scissors}
+                ? paper
+                : scissors}
             </span>
           </div>
         </div>
@@ -35,12 +36,15 @@ export default class ScorePage extends React.Component {
               {userTwo.current_choice === "rock"
                 ? rock
                 : userTwo.current_choice === "paper"
-                  ? paper
-                  : scissors}
+                ? paper
+                : scissors}
             </span>
           </div>
         </div>
         <button onClick={this.props.onClick}>Next Round</button>
+        <Link onClick={this.props.onQuitGame} to={`/`}>
+          <button>Quit Game</button>
+        </Link>
       </div>
     );
   }
