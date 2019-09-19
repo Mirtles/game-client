@@ -66,7 +66,9 @@ export default class ScorePage extends React.Component {
               <button onClick={this.props.onClick}>Next Round</button>
             )}
           </div>
-        ) : null}
+        ) : (
+          "Something went wrong"
+        )}
       </div>
     );
   }
