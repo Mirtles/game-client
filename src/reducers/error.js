@@ -1,11 +1,9 @@
-import { JWT, LOG_OUT } from "../actions/user";
+import { ERROR } from "../actions/user";
 
 export default function(state = "", action = {}) {
   switch (action.type) {
-    case JWT:
+    case ERROR:
       return action.payload;
-    case LOG_OUT:
-      return "";
     default:
       return state;
   }
