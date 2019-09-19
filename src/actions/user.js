@@ -1,5 +1,6 @@
 import request from "superagent";
 import url from "../constants";
+
 export const JWT = "JWT";
 
 function jwt(payload) {
@@ -17,3 +18,11 @@ export const login = (name, password) => dispatch => {
       dispatch(jwt(response.body.jwt));
     });
 };
+
+export const LOG_OUT = "LOG_OUT"
+
+export const logOut = () => dispatch => {
+  dispatch({
+    type: LOG_OUT
+  })
+}
