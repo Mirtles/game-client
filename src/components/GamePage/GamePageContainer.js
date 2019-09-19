@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import request from "superagent";
+import { Link } from 'react-router-dom'
 
 import GamePage from "./GamePage";
 import ScorePage from "../ScorePage/ScorePage";
@@ -54,9 +55,11 @@ class GamePageContainer extends React.Component {
                 <GamePage
                   onClick={this.onChoice}
                   game={game}
-                  onQuitGame={this.onQuitGame}
                 />
               )}
+        <Link onClick={this.onQuitGame} to={`/`}>
+          <button>Quit Game</button>
+        </Link>
       </div>
     );
   }
