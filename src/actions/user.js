@@ -24,7 +24,6 @@ export const login = (name, password) => dispatch => {
     .post(`${url}/login`)
     .send({ name, password })
     .then(response => {
-      // errorMessage(response.body.message);
       dispatch(jwt(response.body));
     });
 };

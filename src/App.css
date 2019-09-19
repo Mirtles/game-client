@@ -8,7 +8,7 @@ body {
   padding: 2rem 0;
   width: 100%;
   text-align: center;
-  line-height: 2;
+  /* line-height: 2; */
   font-size: 18px;
 }
 
@@ -17,13 +17,14 @@ body {
 }
 
 .emoji {
-  transform: rotate(-90deg);
+  transform: scale(-1, 1) rotate(-90deg);
   margin: 0 auto;
-  font-size: 100px;
+  font-size: 10em;
   cursor: pointer;
 }
 
-.victory {
+.victory,
+.defeat {
   font-size: 6rem;
 }
 
@@ -90,7 +91,6 @@ button {
   width: 80%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-
   margin: auto;
 }
 
@@ -101,7 +101,8 @@ button {
   margin: 1em;
 }
 
-a,a:visited {
+a,
+a:visited {
   color: rgb(80, 80, 80);
   text-decoration: none;
 }
@@ -113,4 +114,48 @@ a,a:visited {
 
 .chosen {
   opacity: 1;
+}
+
+.userScore {
+  /* border: 1px solid black; */
+  /* border-radius: %; */
+  background-color: whitesmoke;
+  margin: 3em;
+}
+
+.scoreEmojiOne {
+  margin: 0 auto;
+  font-size: 10em;
+  transform: scale(-1, 1) rotate(-90deg);
+  /* padding-bottom: 2em; */
+}
+
+.scoreEmojiTwo {
+  margin: 0 auto;
+  font-size: 10em;
+  transform: rotate(-90deg);
+}
+.scoreDivs {
+  /* background-color: black; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.roundScore {
+  font-size: 3em;
+}
+.nameScore {
+  margin-top: 2em;
+}
+
+.scoreBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* background-color: azure; */
+  /* padding: 2em; */
+}
+.score,
+.round,
+.room {
+  font-size: 2em;
 }
