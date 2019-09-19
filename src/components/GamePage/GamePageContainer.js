@@ -5,6 +5,7 @@ import request from "superagent";
 import GamePage from "./GamePage";
 import ScorePage from "../ScorePage/ScorePage";
 import url from "../../constants";
+import ScoreBar from "../ScoreBar/ScoreBar"
 
 class GamePageContainer extends React.Component {
   onChoice = (e, choice) => {
@@ -32,12 +33,13 @@ class GamePageContainer extends React.Component {
     const game =
       this.props.games.length > 0
         ? this.props.games.find(
-            game => game.id === parseInt(this.props.match.params.gameId)
-          )
+          game => game.id === parseInt(this.props.match.params.gameId)
+        )
         : null;
 
     return (
       <div>
+        {game.users.length === 2 ? <ScoreBar game={game} /> : null}
         {!game ? (
           "Loading... "
         ) : game.users.length < 2 ? (
@@ -49,12 +51,12 @@ class GamePageContainer extends React.Component {
             onQuitGame={this.onQuitGame}
           />
         ) : (
-          <GamePage
-            onClick={this.onChoice}
-            game={game}
-            onQuitGame={this.onQuitGame}
-          />
-        )}
+                <GamePage
+                  onClick={this.onChoice}
+                  game={game}
+                  onQuitGame={this.onQuitGame}
+                />
+              )}
       </div>
     );
   }

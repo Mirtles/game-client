@@ -16,3 +16,7 @@
 .victory {
   font-size: 6rem;
 }
+
+.scorebar {
+  display: flex;
+}
