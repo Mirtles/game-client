@@ -13,8 +13,8 @@ class HomePage extends React.Component {
       <div>
         {this.props.user.jwt ? (
           <div>
-            <GamesListContainer />
             <GameFormContainer />
+            <GamesListContainer />
             <button onClick={this.props.logOut}>Log Out</button>
           </div>
         ) : (
