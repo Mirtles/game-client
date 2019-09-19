@@ -31,8 +31,8 @@ export default class ScorePage extends React.Component {
               {userOne.current_choice === "rock"
                 ? rock
                 : userOne.current_choice === "paper"
-                ? paper
-                : scissors}
+                  ? paper
+                  : scissors}
             </span>
           </div>
         </div>
@@ -43,16 +43,13 @@ export default class ScorePage extends React.Component {
               {userTwo.current_choice === "rock"
                 ? rock
                 : userTwo.current_choice === "paper"
-                ? paper
-                : scissors}
+                  ? paper
+                  : scissors}
             </span>
           </div>
         </div>
         {gameEnd ? null :
           <button onClick={this.props.onClick}>Next Round</button>}
-        <Link onClick={this.props.onQuitGame} to={`/`}>
-          <button>Quit Game</button>
-        </Link>
       </div>
     );
   }
