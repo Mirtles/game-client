@@ -11,7 +11,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        {this.props.user ? (
+        {this.props.user.jwt ? (
           <div>
             <GamesListContainer />
             <GameFormContainer />

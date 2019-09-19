@@ -12,21 +12,21 @@ class GamePageContainer extends React.Component {
   onChoice = (e, choice) => {
     request
       .put(`${url}/choose/${choice}`)
-      .set("Authorization", `Bearer ${this.props.user}`)
+      .set("Authorization", `Bearer ${this.props.user.jwt}`)
       .catch(console.error);
   };
 
   onScorePage = () => {
     request
       .put(`${url}/round`)
-      .set("Authorization", `Bearer ${this.props.user}`)
+      .set("Authorization", `Bearer ${this.props.user.jwt}`)
       .catch(console.error);
   };
 
   onQuitGame = () => {
     request
       .put(`${url}/reset`)
-      .set("Authorization", `Bearer ${this.props.user}`)
+      .set("Authorization", `Bearer ${this.props.user.jwt}`)
       .catch(console.error);
   };
 
