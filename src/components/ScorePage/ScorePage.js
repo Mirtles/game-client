@@ -15,7 +15,7 @@ export default class ScorePage extends React.Component {
 
     return (
       <div>
-        <h1>Round winner: {!winner ? "draw" : winner.name}</h1>
+        <h1>{!winner ? "It's a draw!" : `${winner.name} wins!`}</h1>
         <div>
           <h2>{userOne.name}</h2>
           <div>
