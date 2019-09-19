@@ -13,9 +13,16 @@ export default class ScorePage extends React.Component {
     const paper = "✋";
     const scissors = "✌️";
 
+    const gameEnd = winner && winner.score >= 2
+    console.log(gameEnd)
     return (
       <div>
-        <h1>{!winner ? "It's a draw!" : `${winner.name} wins!`}</h1>
+
+        {gameEnd ? <div className="victory">Victory! {winner.name} wins the game!</div> :
+          <div className="novictory">{!winner ?
+            "It's a draw!" :
+            `${winner.name} wins!`}</div>}
+
         <div>
           <h2>{userOne.name}</h2>
           <div>
@@ -40,7 +47,8 @@ export default class ScorePage extends React.Component {
             </span>
           </div>
         </div>
-        <button onClick={this.props.onClick}>Next Round</button>
+        {gameEnd ? null :
+          <button onClick={this.props.onClick}>Next Round</button>}
       </div>
     );
   }
