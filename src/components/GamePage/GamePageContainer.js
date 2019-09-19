@@ -55,6 +55,7 @@ class GamePageContainer extends React.Component {
                 <GamePage
                   onClick={this.onChoice}
                   game={game}
+                  user={this.props.user}
                 />
               )}
         <Link onClick={this.onQuitGame} to={`/`}>
