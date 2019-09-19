@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 export default class GamePage extends React.Component {
   render() {
     return (
@@ -25,6 +27,9 @@ export default class GamePage extends React.Component {
             </span>
           </div>
         </div>
+        <Link onClick={this.props.onQuitGame} to={`/`}>
+          Quit Game
+        </Link>
       </div>
     );
   }
