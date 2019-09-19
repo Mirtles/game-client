@@ -39,7 +39,7 @@ class GamePageContainer extends React.Component {
 
     return (
       <div>
-        {game.users.length === 2 ? <ScoreBar game={game} /> : null}
+        {!game ? null : (game.users.length === 2 ? <ScoreBar game={game} /> : null)}
         {!game ? (
           "Loading... "
         ) : game.users.length < 2 ? (
