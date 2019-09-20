@@ -13,7 +13,7 @@ export default class ScorePage extends React.Component {
     const paper = "✋";
     const scissors = "✌️";
 
-    const gameEnd = winner && winner.score >= 2;
+    const gameEnd = winner && winner.score >= 5;
     const userIsWinner = userOne === winner;
     const userIsVictorious = gameEnd && userIsWinner;
 
