@@ -12,7 +12,6 @@ export default class GamePage extends React.Component {
     const user = this.props.game.users.find(
       user => user.id === this.props.user.id
     );
-
     const chosen = typeof user.current_choice === "string";
     const theChosenOne = user.current_choice;
 
