@@ -5,9 +5,8 @@ import GamesListContainer from "./GamesList/GamesListContainer";
 import GameFormContainer from "./AddGameForm/GameFormContainer";
 import LoginFormContainer from "./LoginForm/LoginFormContainer";
 import SignupFormContainer from "./SignUpForm/SignupFormContainer";
-import Header from "./Header/Header"
-import { logOut } from '../actions/user'
-
+import Header from "./Header/Header";
+import { logOut } from "../actions/user";
 
 class HomePage extends React.Component {
   render() {
@@ -18,14 +17,16 @@ class HomePage extends React.Component {
           <div>
             <GameFormContainer />
             <GamesListContainer />
-            <button onClick={this.props.logOut}>Log Out</button>
+            <button onClick={this.props.logOut} className="quitGameButton">
+              Log Out
+            </button>
           </div>
         ) : (
-            <div>
-              <SignupFormContainer />
-              <LoginFormContainer />
-            </div>
-          )}
+          <div>
+            <SignupFormContainer />
+            <LoginFormContainer />
+          </div>
+        )}
       </div>
     );
   }
@@ -37,4 +38,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { logOut })(HomePage);
+export default connect(
+  mapStateToProps,
+  { logOut }
+)(HomePage);

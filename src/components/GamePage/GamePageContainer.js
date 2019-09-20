@@ -7,6 +7,7 @@ import GamePage from "./GamePage";
 import ScorePage from "../ScorePage/ScorePage";
 import url from "../../constants";
 import ScoreBar from "../ScoreBar/ScoreBar";
+import Header from "../Header/Header";
 
 class GamePageContainer extends React.Component {
   onChoice = (e, choice) => {
@@ -46,7 +47,10 @@ class GamePageContainer extends React.Component {
         {!game ? (
           "Loading... "
         ) : game.users.length < 2 ? (
-          "Waiting for opponent"
+          <div>
+            <Header />
+            <p className="waiting">Waiting for opponent</p>
+          </div>
         ) : game.users.find(user => user.isRoundWinner !== null) ? (
           <ScorePage
             game={game}

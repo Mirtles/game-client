@@ -20,27 +20,24 @@ export default class ScorePage extends React.Component {
     return (
       <div>
         {userOne ? (
-
           <div className="scorePage">
-
             {!gameEnd ? null : userIsVictorious ? (
               <div className="victory">Victory!</div>
             ) : (
-                <div className="defeat">Crushing defeat!</div>
-              )}
+              <div className="defeat">Crushing defeat!</div>
+            )}
 
             {gameEnd ? null : (
               <div className="roundScore">
                 {!winner
                   ? "It's a draw!"
                   : userIsWinner
-                    ? "You win the round!"
-                    : `${winner.name} wins the round.`}
+                  ? "You win the round!"
+                  : `${winner.name} wins the round.`}
               </div>
             )}
 
             <div className="scoreDivs">
-
               <div className="userScore">
                 <h2 className="nameScore">{userOne.name}</h2>
                 <div className="scoreEmojiOne">
@@ -48,8 +45,8 @@ export default class ScorePage extends React.Component {
                     {userOne.current_choice === "rock"
                       ? rock
                       : userOne.current_choice === "paper"
-                        ? paper
-                        : scissors}
+                      ? paper
+                      : scissors}
                   </span>
                 </div>
               </div>
@@ -61,24 +58,22 @@ export default class ScorePage extends React.Component {
                     {userTwo.current_choice === "rock"
                       ? rock
                       : userTwo.current_choice === "paper"
-                        ? paper
-                        : scissors}
+                      ? paper
+                      : scissors}
                   </span>
                 </div>
               </div>
-
             </div>
 
-            {gameEnd ? null :
-              (userOne.hasClickedNext ? "Waiting for opponent" :
-                <button onClick={this.props.onClick}>Next Round</button>
-              )}
-
+            {gameEnd ? null : userOne.hasClickedNext ? (
+              <p className="waiting">Waiting for opponent</p>
+            ) : (
+              <button onClick={this.props.onClick}>Next Round</button>
+            )}
           </div>
         ) : (
-          "Something went wrong"
+          <p className="waiting">Something went wrong</p>
         )}
-
       </div>
     );
   }
