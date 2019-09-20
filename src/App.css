@@ -5,15 +5,16 @@
 body {
   background: white;
   margin: 0;
-  padding: 2rem 0;
   width: 100%;
   text-align: center;
-  /* line-height: 2; */
   font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .imageContainer {
   display: flex;
+  padding-top: 10em;
+  padding-bottom: 8em;
 }
 
 .emoji {
@@ -26,6 +27,7 @@ body {
 .victory,
 .defeat {
   font-size: 6rem;
+  margin-top: 0.8em;
 }
 
 form {
@@ -44,13 +46,11 @@ form {
 
 label {
   display: inline;
-  /* width: 80%; */
 }
 
 textarea {
   vertical-align: top;
   height: 5rem;
-  /* margin: 0.3em; */
 }
 
 input,
@@ -68,19 +68,14 @@ textarea {
 button {
   font: inherit;
   color: inherit;
-  background-color: transparent;
   border: solid 1px transparent;
   border-radius: 5px;
-  padding: 0.1rem 1rem;
+  padding: 0.8rem 2rem;
   color: #ffffff;
   background-color: rgb(80, 80, 80);
   display: block;
   margin: 0 auto;
   margin-top: 0.5em;
-}
-
-.scorebar {
-  display: flex;
 }
 
 .errorMessage {
@@ -117,17 +112,13 @@ a:visited {
 }
 
 .userScore {
-  /* border: 1px solid black; */
-  /* border-radius: %; */
-  background-color: whitesmoke;
-  margin: 3em;
+  margin: 1.6em;
 }
 
 .scoreEmojiOne {
   margin: 0 auto;
   font-size: 10em;
   transform: scale(-1, 1) rotate(-90deg);
-  /* padding-bottom: 2em; */
 }
 
 .scoreEmojiTwo {
@@ -136,26 +127,33 @@ a:visited {
   transform: rotate(-90deg);
 }
 .scoreDivs {
-  /* background-color: black; */
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
 .roundScore {
   font-size: 3em;
+  margin-top: 0.8em;
 }
 .nameScore {
-  margin-top: 2em;
+  margin-top: 0.2em;
+  font-size: 5em;
 }
 
 .scoreBar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* background-color: azure; */
-  /* padding: 2em; */
+  padding-bottom: 0.7em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background-color: rgb(165, 164, 164);
+  color: white;
 }
 .score,
 .round,
 .room {
   font-size: 2em;
+}
+.gamePageContainer {
+  /* margin-top: 2em; */
 }
