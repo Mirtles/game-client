@@ -75,7 +75,9 @@ export default class ScorePage extends React.Component {
               )}
 
           </div>
-        ) : null}
+        ) : (
+          "Something went wrong"
+        )}
 
       </div>
     );

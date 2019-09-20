@@ -15,10 +15,9 @@ export default class ScoreBar extends React.Component {
         {userOne ? (
           <div className="scoreBar">
             <div className="round">Round: {round}</div>
-            <div className="room">Room: {name}</div>
+            <div className="room">{name}</div>
             <div className="score">
-              Score: {userOne.name} {userOne.score} vs {userTwo.name}{" "}
-              {userTwo.score}
+              Score: {userOne.score} vs {userTwo.score}
             </div>
           </div>
         ) : null}

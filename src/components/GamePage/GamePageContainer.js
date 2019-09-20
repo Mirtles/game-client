@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import request from "superagent";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import GamePage from "./GamePage";
 import ScorePage from "../ScorePage/ScorePage";
 import url from "../../constants";
-import ScoreBar from "../ScoreBar/ScoreBar"
+import ScoreBar from "../ScoreBar/ScoreBar";
 
 class GamePageContainer extends React.Component {
   onChoice = (e, choice) => {
@@ -34,13 +34,15 @@ class GamePageContainer extends React.Component {
     const game =
       this.props.games.length > 0
         ? this.props.games.find(
-          game => game.id === parseInt(this.props.match.params.gameId)
-        )
+            game => game.id === parseInt(this.props.match.params.gameId)
+          )
         : null;
 
     return (
       <div>
-        {!game ? null : (game.users.length === 2 ? <ScoreBar game={game} user={this.props.user} /> : null)}
+        {!game ? null : game.users.length === 2 ? (
+          <ScoreBar game={game} user={this.props.user} />
+        ) : null}
         {!game ? (
           "Loading... "
         ) : game.users.length < 2 ? (
@@ -52,12 +54,12 @@ class GamePageContainer extends React.Component {
             user={this.props.user}
           />
         ) : (
-                <GamePage
-                  onClick={this.onChoice}
-                  game={game}
-                  user={this.props.user}
-                />
-              )}
+          <GamePage
+            onClick={this.onChoice}
+            game={game}
+            user={this.props.user}
+          />
+        )}
         <Link onClick={this.onQuitGame} to={`/`}>
           <button>Quit Game</button>
         </Link>
