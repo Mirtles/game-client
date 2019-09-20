@@ -2,15 +2,12 @@ import "./App.css";
 
 import React from "react";
 import { connect } from "react-redux";
+import { Route } from "react-router-dom";
 
 import { setGames } from "./actions/games";
-import GameFormContainer from "./components/AddGameForm/GameFormContainer";
-import GamesListContainer from "./components/GamesList/GamesListContainer";
-
-import LoginFormContainer from "./components/LoginForm/LoginFormContainer";
 import url from "./constants";
-import SignupFormContainer from "./components/SignUpForm/SignupFormContainer";
-
+import HomePage from "./components/HomePage";
+import GamePageContainer from "./components/GamePage/GamePageContainer";
 
 class App extends React.Component {
   source = new EventSource(`${url}/stream`);
@@ -27,10 +24,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <GameFormContainer />
-        <GamesListContainer />
-        <SignupFormContainer />
-        <LoginFormContainer />
+        <Route path="/lobby/:gameId" component={GamePageContainer} />
+        <Route exact path="/" component={HomePage} />
       </div>
     );
   }
@@ -42,7 +37,8 @@ const mapDispatchToProps = {
 
 const mapStateToProps = state => {
   return {
-    games: state.games
+    games: state.games,
+    user: state.user
   };
 };
 

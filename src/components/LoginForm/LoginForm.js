@@ -12,7 +12,7 @@ export default class LoginForm extends React.Component {
           onChange={this.props.onChange}
         ></input>
         <input
-          type="text"
+          type="password"
           name="password"
           placeholder="Password"
           value={this.props.value.password}

@@ -3,8 +3,10 @@ import request from "superagent";
 
 import SignUpForm from "./SignupForm";
 import url from "../../constants";
+import { errorMessage } from "../../actions/user";
+import { connect } from "react-redux";
 
-export default class SignupFormContainer extends React.Component {
+class SignupFormContainer extends React.Component {
   state = {
     name: "",
     password: ""
@@ -14,7 +16,10 @@ export default class SignupFormContainer extends React.Component {
     request
       .post(`${url}/user`)
       .send({ name, password })
-      .catch(console.error);
+      .then(res => this.props.errorMessage(res.body))
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   onSubmit = event => {
@@ -34,11 +39,29 @@ export default class SignupFormContainer extends React.Component {
 
   render() {
     return (
-      <SignUpForm
-        onSubmit={this.onSubmit}
-        onChange={this.onChange}
-        value={this.state}
-      />
+      <div>
+        {this.props.error ? (
+          <p className="errorMessage">{this.props.error.body}</p>
+        ) : null}
+        <SignUpForm
+          onSubmit={this.onSubmit}
+          onChange={this.onChange}
+          value={this.state}
+        />
+      </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+    games: state.games,
+    error: state.error
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { errorMessage }
+)(SignupFormContainer);

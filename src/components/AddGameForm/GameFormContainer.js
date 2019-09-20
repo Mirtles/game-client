@@ -3,8 +3,9 @@ import request from "superagent";
 
 import GameForm from "./GameForm";
 import url from "../../constants";
+import { connect } from "react-redux";
 
-export default class GameFormContainer extends React.Component {
+class GameFormContainer extends React.Component {
   state = {
     name: ""
   };
@@ -16,6 +17,7 @@ export default class GameFormContainer extends React.Component {
 
     request
       .post(`${url}/game`)
+      .set("Authorization", `Bearer ${this.props.user.jwt}`)
       .send({ name })
       .then(() => {
         this.setState({ name: "" });
@@ -37,3 +39,9 @@ export default class GameFormContainer extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { user: state.user }
+}
+
+export default connect(mapStateToProps)(GameFormContainer)

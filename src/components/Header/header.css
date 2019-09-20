@@ -1,0 +1,14 @@
+.logo {
+  height: 4rem;
+  margin-top: 0.7rem;
+  margin-right: 1rem;
+  filter: brightness(0) invert(1);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(165, 164, 164);
+  color: white;
+  padding: 1rem;
+}

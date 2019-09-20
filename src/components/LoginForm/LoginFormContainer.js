@@ -27,16 +27,28 @@ class LoginFormContainer extends React.Component {
 
   render() {
     return (
-      <LoginForm
-        value={this.state}
-        onChange={this.onChange}
-        onSubmit={this.onSubmit}
-      />
+      <div>
+        {this.props.user.message ? (
+          <p className="errorMessage">{this.props.user.message}</p>
+        ) : null}
+        <LoginForm
+          value={this.state}
+          onChange={this.onChange}
+          onSubmit={this.onSubmit}
+        />
+      </div>
     );
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
+}
+
 export default connect(
-  null,
+  mapStateToProps,
+  // null,
   { login }
 )(LoginFormContainer);
