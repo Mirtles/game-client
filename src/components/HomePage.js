@@ -5,12 +5,15 @@ import GamesListContainer from "./GamesList/GamesListContainer";
 import GameFormContainer from "./AddGameForm/GameFormContainer";
 import LoginFormContainer from "./LoginForm/LoginFormContainer";
 import SignupFormContainer from "./SignUpForm/SignupFormContainer";
+import Header from "./Header/Header"
 import { logOut } from '../actions/user'
+
 
 class HomePage extends React.Component {
   render() {
     return (
       <div>
+        <Header />
         {this.props.user.jwt ? (
           <div>
             <GameFormContainer />
