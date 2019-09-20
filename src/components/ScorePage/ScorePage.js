@@ -70,7 +70,7 @@ export default class ScorePage extends React.Component {
             </div>
 
             {gameEnd ? null :
-              (userOne.hasClickedNext ? "waiting for opponent" :
+              (userOne.hasClickedNext ? "Waiting for opponent" :
                 <button onClick={this.props.onClick}>Next Round</button>
               )}
 
